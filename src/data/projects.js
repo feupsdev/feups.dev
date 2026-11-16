@@ -42,11 +42,11 @@ export const projects = [
   name: 'HollowMovie',
   type: 'Plataforma de filmes e séries',
   status: 'Online',
-  description:'Plataforma de descoberta de filmes e séries com dados da TMDB, busca avançada, filtros, trailers, favoritos, histórico e informações de onde assistir no Brasil.',
-  tech: ['JavaScript', 'HTML5', 'CSS3', 'Netlify Functions', 'TMDB API'],
+  description: 'Plataforma de descoberta de filmes e séries integrada à API TMDB.',
+  tech: ['HTML', 'CSS', 'JavaScript', 'TMDB API'],
   url: 'https://hollowmovie.netlify.app/',
   preview: {
-  embed: 'auto',
+    embed: 'auto',
   },
 },
 
