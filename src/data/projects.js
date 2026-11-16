@@ -33,8 +33,8 @@ export const projects = [
   status: 'Protótipo',
   description:
     'Chatbot de enfermagem pediátrica com inteligência artificial, desenvolvido para oferecer informações gerais sobre cuidados com bebês e crianças, por meio de uma interface interativa e acolhedora.',
-  tech: ['PHP', 'HTML5', 'CSS3', 'JavaScript', 'Groq API', 'Docker'],
-  url: '', // Adicionar após publicar
+  tech: ['PHP', 'HTML5', 'CSS3', 'JavaScript', 'Gemini API', 'Docker'],
+  url: 'https://baymaxbot.onrender.com/', // Adicionar após publicar
 },
 
 {
@@ -49,7 +49,7 @@ export const projects = [
   embed: 'blocked',
   },
 },
-,
+
     {
       id: 'marola',
       name: 'Marola',
