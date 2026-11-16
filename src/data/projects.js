@@ -46,7 +46,7 @@ export const projects = [
   tech: ['JavaScript', 'HTML5', 'CSS3', 'Netlify Functions', 'TMDB API'],
   url: 'https://hollowmovie.netlify.app/',
   preview: {
-  embed: 'blocked',
+  embed: 'auto',
   },
 },
 
