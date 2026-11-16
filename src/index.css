@@ -1,0 +1,324 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --surface-1: #111111;
+    --surface-2: #171717;
+    --surface-3: #202020;
+    --border-subtle: rgba(255, 255, 255, 0.09);
+    --brand-glow: rgba(103, 61, 230, 0.22);
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  /* Mantém as seções abaixo do cabeçalho fixo ao navegar por âncoras. */
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
+  body {
+    @apply bg-ink font-sans text-zinc-300 antialiased;
+    overflow-x: hidden;
+    font-feature-settings: 'ss01' on, 'cv11' on;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+  ::selection {
+    background: #673de6;
+    color: #fff;
+  }
+  :focus-visible {
+    outline: 2px solid #a78bfa;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[80rem] px-5 sm:px-8 lg:px-10;
+  }
+  .section-y {
+    @apply py-20 sm:py-28 lg:py-32;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-brand-lilac;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply h-px w-8 bg-brand-purple;
+  }
+  .display {
+    @apply font-display font-extrabold leading-[0.98] tracking-[-0.03em] text-white;
+  }
+  .h2 {
+    @apply display text-[clamp(2rem,7.4vw,4.25rem)];
+  }
+  .outline-text {
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.28);
+  }
+
+  /* Botões: preenchimento deslizante no hover */
+  .btn {
+    @apply relative isolate inline-flex min-h-[52px] items-center justify-center gap-2 overflow-hidden rounded-full px-7 text-sm font-bold transition-[color,background-color,border-color,transform,box-shadow] duration-300;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
+  }
+  .btn:active { transform: scale(.975); }
+  .btn:focus-visible { outline-offset: 4px; }
+  .btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transform: translateY(101%);
+    transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .btn:hover::before,
+  .btn:focus-visible::before {
+    transform: none;
+  }
+  .btn-primary {
+    @apply btn bg-brand-purple text-white hover:text-ink;
+  }
+  .btn-primary::before {
+    background: #fff;
+  }
+  .btn-ghost {
+    @apply btn border border-white/20 text-white hover:text-ink;
+  }
+  .btn-ghost::before {
+    background: #a78bfa;
+  }
+  .btn-light {
+    @apply btn bg-white text-ink hover:text-white;
+  }
+  .btn-light::before {
+    background: #0c0c0c;
+  }
+
+  .card {
+    @apply relative rounded-3xl border border-line bg-graphite/50 transition duration-500;
+    background-image: linear-gradient(145deg, rgba(255,255,255,.035), transparent 42%);
+    box-shadow: 0 1px 0 rgba(255,255,255,.025), 0 18px 50px -38px rgba(0,0,0,.9);
+  }
+  .card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    opacity: 0;
+    background: radial-gradient(420px circle at var(--pointer-x, 50%) var(--pointer-y, 50%), rgba(167,139,250,.12), transparent 48%);
+    transition: opacity .35s ease;
+  }
+  .card:hover::after, .card:focus-within::after { opacity: 1; }
+  .card > * { position: relative; z-index: 1; }
+  .card-hover {
+    @apply hover:-translate-y-1 hover:border-brand-lilac/40 hover:shadow-[0_28px_70px_-38px_rgba(103,61,230,0.72)];
+  }
+  .nav-link {
+    @apply relative py-2 text-sm font-medium text-zinc-400 transition-colors duration-300 hover:text-white;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    right: 0; bottom: 0; left: 0;
+    height: 2px; border-radius: 999px;
+    background: #a78bfa;
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .3s cubic-bezier(.22,1,.36,1);
+  }
+  .nav-link:hover::after, .nav-link[aria-current='location']::after { transform: scaleX(1); }
+  .nav-link[aria-current='location'] { color: #fff; }
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse at 70% 40%, #000 15%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at 70% 40%, #000 15%, transparent 70%);
+  }
+
+  /* Texto revelado linha a linha */
+  .line {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.1em;
+    margin-bottom: -0.1em;
+  }
+}
+
+/* Entrada suave ao rolar */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--delay, 0ms);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .marquee-track,
+  .animate-spin-slow,
+  .animate-float {
+    animation: none !important;
+  }
+}
+
+
+/* Acabamento premium: brilho contextual e superfícies com profundidade. */
+::selection { background: rgba(167, 139, 250, .85); color: #090909; }
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover, .btn-ghost:hover, .btn-light:hover {
+    box-shadow: 0 10px 30px -16px rgba(167, 139, 250, .75), inset 0 1px 0 rgba(255,255,255,.18);
+  }
+}
+
+@media (max-width: 767px) {
+  .reveal { transform: translateY(18px); }
+  section[id] { scroll-margin-top: 4.5rem; }
+  .section-y { scroll-margin-top: 4.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card, .btn, .nav-link::after { transition: none !important; }
+}
+
+@media (hover: none), (pointer: coarse) { .card::after { display: none; } .card-hover:hover { transform: none; } }
+
+
+/* Social icon button — adaptação leve do padrão Social Icon Buttons do MicroKit UI. */
+.social-icon-button {
+  position: relative;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .045);
+  color: #e8e8ec;
+  text-decoration: none;
+  transition: color .4s cubic-bezier(.22, 1, .36, 1), border-color .4s cubic-bezier(.22, 1, .36, 1), box-shadow .4s cubic-bezier(.22, 1, .36, 1), background .4s ease;
+}
+.social-icon-button-swap {
+  display: grid;
+  place-items: center;
+  transition: transform .4s cubic-bezier(.22, 1, .36, 1);
+}
+.social-icon-button-arrow {
+  position: absolute;
+  transform: translateY(250%);
+}
+.social-icon-button:hover,
+.social-icon-button:focus-visible {
+  border-color: #e4405f;
+  background: rgba(228, 64, 95, .08);
+  color: #ff7890;
+  box-shadow: 0 0 20px rgba(228, 64, 95, .2);
+}
+.social-icon-button:hover .social-icon-button-swap:not(.social-icon-button-arrow),
+.social-icon-button:focus-visible .social-icon-button-swap:not(.social-icon-button-arrow) {
+  transform: translateY(-250%);
+}
+.social-icon-button:hover .social-icon-button-arrow,
+.social-icon-button:focus-visible .social-icon-button-arrow {
+  transform: translateY(0);
+}
+.social-icon-button:focus-visible { outline: 2px solid #ff7890; outline-offset: 4px; }
+
+/* Laser Trace — feixe luminoso que percorre a borda no hover, foco ou toque. */
+.btn-laser {
+  position: relative;
+  isolation: isolate;
+}
+
+.btn-laser::after {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  inset: -1px;
+  padding: 1.5px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg 282deg,
+    rgba(167, 139, 250, .2) 300deg,
+    #c4b5fd 326deg,
+    #fff 338deg,
+    #8b5cf6 350deg,
+    transparent 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  filter: drop-shadow(0 0 5px rgba(196, 181, 253, .9));
+  transform: rotate(0deg);
+  transform-origin: center;
+}
+
+.btn-laser:hover::after,
+.btn-laser:focus-visible::after,
+.btn-laser:active::after {
+  opacity: 1;
+  animation: laser-trace 1.8s linear infinite;
+}
+
+@keyframes laser-trace {
+  to { transform: rotate(360deg); }
+}
+
+/* O trilho contém quatro cópias idênticas: o deslocamento de 50% fecha o loop sem emenda. */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-loop 38s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+.marquee-track > ul { flex: 0 0 auto; }
+
+@keyframes marquee-loop {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social-icon-button,
+  .social-icon-button-swap { transition: none !important; }
+  .btn-laser:hover::after,
+  .btn-laser:focus-visible::after { animation: none !important; opacity: 1; }
+  .marquee-track { animation: none !important; }
+}
