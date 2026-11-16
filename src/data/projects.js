@@ -26,44 +26,38 @@ export const projects = [
     tech: ['React', 'Vite', 'Tailwind CSS'],
     url: 'https://kakaupets.onrender.com/',
   },
-  {
-    id: 'baymax',
-    name: 'BayMax',
-    type: 'Projeto experimental',
-    status: 'Em desenvolvimento',
-    description:
-      'Interface de assistente virtual em desenvolvimento. Um projeto experimental ainda em construção, sem versão pública.',
-    tech: [],
-    url: null,
+{
+  id: 'baymax',
+  name: 'Baymax',
+  type: 'Assistente virtual com IA',
+  status: 'Protótipo',
+  description:
+    'Chatbot de enfermagem pediátrica com inteligência artificial, desenvolvido para oferecer informações gerais sobre cuidados com bebês e crianças, por meio de uma interface interativa e acolhedora.',
+  tech: ['PHP', 'HTML5', 'CSS3', 'JavaScript', 'Groq API', 'Docker'],
+  url: '', // Adicionar após publicar
+},
+
+{
+  id: 'hollowmovie',
+  name: 'HollowMovie',
+  type: 'Plataforma de filmes e séries',
+  status: 'Online',
+  description:'Plataforma de descoberta de filmes e séries com dados da TMDB, busca avançada, filtros, trailers, favoritos, histórico e informações de onde assistir no Brasil.',
+  tech: ['JavaScript', 'HTML5', 'CSS3', 'Netlify Functions', 'TMDB API'],
+  url: 'https://hollowmovie.netlify.app/',
+  preview: {
+  embed: 'blocked',
   },
+},
+,
     {
-    id: 'kakaupet',
-    name: 'KakauPet',
-    type: 'E-commerce',
-    status: 'Online',
-    description:
-      'Projeto de e-commerce pet desenvolvido do zero, com interface responsiva e navegação pensada para facilitar a compra.',
-    tech: ['React', 'Vite', 'Tailwind CSS'],
-    url: 'https://kakaupets.onrender.com/',
-  },
-    {
-    id: 'kakaupet',
-    name: 'KakauPet',
-    type: 'E-commerce',
-    status: 'Online',
-    description:
-      'Projeto de e-commerce pet desenvolvido do zero, com interface responsiva e navegação pensada para facilitar a compra.',
-    tech: ['React', 'Vite', 'Tailwind CSS'],
-    url: 'https://kakaupets.onrender.com/',
-  },
-    {
-    id: 'kakaupet',
-    name: 'KakauPet',
-    type: 'E-commerce',
-    status: 'Online',
-    description:
-      'Projeto de e-commerce pet desenvolvido do zero, com interface responsiva e navegação pensada para facilitar a compra.',
-    tech: ['React', 'Vite', 'Tailwind CSS'],
-    url: 'https://kakaupets.onrender.com/',
-  },
+      id: 'marola',
+      name: 'Marola',
+      type: 'Gestão financeira',
+      status: 'Protótipo',
+      description:
+        'Plataforma de gestão financeira para micro e pequenas empresas, com foco na organização do fluxo de caixa e controle de movimentações via Pix.',
+      tech: ['HTML5', 'CSS3', 'JavaScript', 'Tailwind CSS'],
+      url: 'https://marola-finance.vercel.app/', 
+    },
 ]
