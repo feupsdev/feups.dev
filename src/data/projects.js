@@ -44,7 +44,7 @@ export const projects = [
   status: 'Online',
   description:'Plataforma de descoberta de filmes e séries com dados da TMDB, busca avançada, filtros, trailers, favoritos, histórico e informações de onde assistir no Brasil.',
   tech: ['JavaScript', 'HTML5', 'CSS3', 'Netlify Functions', 'TMDB API'],
-  url: 'https://hollowmovie.vercel.app/',
+  url: 'https://hollowmovie.netlify.app/',
   preview: {
   embed: 'blocked',
   },
