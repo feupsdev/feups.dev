@@ -16,7 +16,7 @@ import path from 'node:path'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const write = process.argv.includes('--write')
-const siteOrigin = (process.env.SITE_ORIGIN || 'https://feups.dev').replace(/\/$/, '')
+const siteOrigin = (process.env.SITE_ORIGIN || 'https://feupsdev.vercel.app').replace(/\/$/, '')
 const siteHost = new URL(siteOrigin).host
 
 const { projects } = await import(pathToFileURL(path.join(root, 'src/data/projects.js')).href)
@@ -36,11 +36,22 @@ function evaluate(headers) {
     .find((d) => d.toLowerCase().startsWith('frame-ancestors'))
   if (fa) {
     const sources = fa.split(/\s+/).slice(1).map((x) => x.toLowerCase())
-    const ok = sources.some(
-      (src) => src === '*' || src === siteOrigin.toLowerCase() || src === siteHost || src === 'https:' || src.includes(`*.${siteHost.split('.').slice(-2).join('.')}`),
-    )
-    if (!ok) return { status: 'blocked', reason: `CSP: ${fa}` }
+
+    const ok = sources.some((src) => {
+      if (src === "'self'") return false
+      if (src === '*') return true
+      if (src === siteOrigin.toLowerCase()) return true
+      if (src === siteHost.toLowerCase()) return true
+      if (src === 'https:') return true
+
+      return false
+    })
+
+    if (!ok) {
+      return { status: 'blocked', reason: `CSP: ${fa}` }
+    }
   }
+
   return { status: 'embeddable', reason: null }
 }
 
