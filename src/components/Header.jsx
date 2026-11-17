@@ -37,7 +37,7 @@ export default function Header() {
       }`}
     >
       <div className="container-x flex h-16 items-center justify-between sm:h-[72px]">
-        <a href="#inicio" aria-label="feups.dev — início" onClick={close}>
+        <a href="#inicio" aria-label="feupsdev — início" onClick={close}>
           <Logo />
         </a>
 

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://feupsdev.com.br/sitemap.xml

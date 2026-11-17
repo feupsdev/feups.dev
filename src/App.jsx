@@ -55,7 +55,7 @@ export default function App() {
         <Projects />
         <Differentials />
         <Process />
-        <Marquee variant="outline" items={['feups.dev', 'Estúdio independente', 'Desenvolvimento web']} />
+        <Marquee variant="outline" items={['feupsdev', 'Estúdio independente', 'Desenvolvimento web']} />
         <ContactCTA />
       </main>
       <Footer />

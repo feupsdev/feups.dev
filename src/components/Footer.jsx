@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="overflow-hidden border-t border-white/10 bg-ink">
       <div className="container-x grid gap-10 py-12 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <a href="#inicio" aria-label="feups.dev — voltar ao início">
+          <a href="#inicio" aria-label="feupsdev — voltar ao início">
             <Logo />
           </a>
           <p className="max-w-sm mt-4 text-sm leading-relaxed text-zinc-300">{site.description}</p>
@@ -97,12 +97,12 @@ export default function Footer() {
         aria-hidden="true"
         className="outline-text select-none whitespace-nowrap text-center font-display text-[clamp(3.5rem,19vw,15rem)] font-extrabold leading-[0.8] tracking-tighter"
       >
-        feups.dev
+        feupsdev
       </p>
 
       <div className="mt-6 border-t border-white/10">
         <div className="flex flex-col items-center justify-between gap-4 py-6 text-xs container-x text-zinc-400 sm:flex-row">
-          <p>© {new Date().getFullYear()} feups.dev. Todos os direitos reservados.</p>
+          <p>© {new Date().getFullYear()} feupsdev. Todos os direitos reservados.</p>
           <a
             href="#inicio"
             className="inline-flex min-h-[44px] items-center gap-2 rounded-lg px-3 text-zinc-300 transition hover:text-white"

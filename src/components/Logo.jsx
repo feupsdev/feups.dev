@@ -1,4 +1,4 @@
-// Marca "F" (SVG recriado a partir da logo) + wordmark feups.dev.
+// Marca "F" (SVG recriado a partir da logo) + wordmark feupsdev.
 // variant: 'solid' (roxo elétrico) | 'light' (branco) | 'lilac' | 'outline' (só contorno)
 const PATHS = [
   'M0 125C8 50 50 2 100 2H310L245 63H120C60 63 25 90 0 125Z',
@@ -29,7 +29,7 @@ export default function Logo({ className = '', markClass = 'h-8 w-8', textClass 
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <LogoMark className={markClass} variant="lilac" />
       <span className={`font-display font-extrabold leading-none tracking-tight text-white ${textClass}`}>
-        feups<span className="text-brand-lilac">.dev</span>
+        feups<span className="text-brand-lilac">dev</span>
       </span>
     </span>
   )

@@ -6,7 +6,7 @@ const whatsappNumber = (import.meta.env.VITE_WHATSAPP_NUMBER || '').replace(/\D/
 const email = (import.meta.env.VITE_CONTACT_EMAIL || '').trim()
 
 export const site = {
-  name: 'feups.dev',
+  name: 'feupsdev',
   tagline: 'Desenvolvimento web',
   description:
     'Estúdio independente de desenvolvimento web. Sites com identidade própria, feitos sob medida para cada negócio.',
@@ -19,7 +19,7 @@ export const site = {
   githubHandle: 'feupsdev',
   twitterHandle: '@feupsdev',
   whatsappNumber,
-  whatsappMessage: 'Olá! Vim pelo site feups.dev e gostaria de solicitar um orçamento.',
+  whatsappMessage: 'Olá! Vim pelo site feupsdev e gostaria de solicitar um orçamento.',
   email: 'felipehenriquedsc@gmail.com',
   nav: [
     { label: 'Início', href: '#inicio' },

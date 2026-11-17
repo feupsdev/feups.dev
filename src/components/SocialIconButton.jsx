@@ -1,7 +1,7 @@
 import { ArrowRight, Instagram } from 'lucide-react'
 
 // Botão social inspirado no MicroKit UI, usando o perfil já configurado no projeto.
-export default function SocialIconButton({ href, label = 'Instagram do feups.dev' }) {
+export default function SocialIconButton({ href, label = 'Instagram do feupsdev' }) {
   return (
     <a
       href={href}
