@@ -24,8 +24,8 @@ export const projects = [
     description:
       'Landing page conceitual de smartphone premium, com configurador interativo de cores, visualização do aparelho em 3D e interface dinâmica.',
     tech: ['React', 'Vite', 'Tailwind CSS', 'Three.js', 'React Three Fiber', 'Drei', 'Blender'],
-    url: '',
-  } 
+    url: 'https://nexora-three-tau-14.vercel.app/',
+  } ,
   {
     id: 'kakaupet',
     name: 'KakauPet',
